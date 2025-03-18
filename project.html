@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Engineering Education Expo Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://media.istockphoto.com/id/1385168396/photo/people-registering-for-the-conference-event.jpg?s=612x612&w=0&k=20&c=ZHMACoGg5zfL-nUzjoXTrXedDXXoj_E7rBZBihaWfBA='); /* Updated background image */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background image */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for form */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .confirmation-message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Global Engineering Education Expo Registration</h1>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="event">Select Event:</label>
+                <select id="event" name="event" required>
+                    <option value="">--Please choose an event--</option>
+                    <option value="Global Engineering Education Expo">Global Engineering Education Expo</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="session">Session:</label>
+                <select id="session" name="session" required>
+                    <option value="">--Please choose a session--</option>
+                    <option value="Impact of AI and ML on Future Employment - 10:15 AM - 11:00 AM, March 23, 2025 - Speaker: Dr. Savitha (AI Engineering Manager- at IBM)">Impact of AI and ML on Future Employment - 10:15 AM - 11:00 AM, March 23, 2025 - Speaker: Dr. Savitha (AI Engineering Manager- at IBM)</option>
+                    <option value="Emerging Trends in Cyber Security: what's next? - 11:15 AM - 12:00 PM, March 23, 2025 - Speaker: Dharshan Shanthamurthy (Founder and CEO- at SISA)">Emerging Trends in Cyber Security: what's next? - 11:15 AM - 12:00 PM, March 23, 2025 - Speaker: Dharshan Shanthamurthy (Founder and CEO- at SISA)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <select id="location" name="location" required>
+                    <option value="">--Please choose a location--</option>
+                    <option value="Online">Online</option>
+                    <option value="Offline at Welcome Hotel by ITC">Offline at Welcome Hotel by ITC</option>
+                </select>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <div id="confirmationMessage" class="confirmation-message"></div>
+    </div>
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const eventSelected = document.getElementById("event").value;
+            const sessionSelected = document.getElementById("session").value;
+            const locationSelected = document.getElementById("location").value;
+
+            // Display confirmation message
+            const confirmationMessage = document.getElementById("confirmationMessage");
+            confirmationMessage.innerHTML = `Thank you, ${name}! You have registered for the ${eventSelected}. Session: ${sessionSelected}, Location: ${locationSelected}. We will contact you at ${email}.`;
+
+            // Clear the form
+            document.getElementById("registrationForm").reset();
+        });
+    </script>
+</body>
+</html>
